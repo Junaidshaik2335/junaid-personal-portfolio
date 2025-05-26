@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Code, Sparkles, Zap, Globe, Database, Server, Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -70,19 +69,18 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Profile section */}
+            {/* Profile section with actual image */}
             <div className="flex justify-center lg:justify-end animate-scale-in">
               <div className="relative">
                 {/* Main profile container */}
                 <div className="relative w-96 h-96 rounded-3xl bg-gradient-to-br from-blue-500 via-blue-600 to-emerald-500 p-1 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
-                  <div className="w-full h-full rounded-3xl bg-white p-8 flex items-center justify-center relative overflow-hidden">
-                    {/* Background pattern */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-blue-50/50"></div>
-                    
-                    {/* Profile placeholder */}
-                    <div className="relative w-64 h-64 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center shadow-inner">
-                      <div className="text-6xl font-bold text-gray-500">SMJ</div>
-                    </div>
+                  <div className="w-full h-full rounded-3xl bg-white p-2 flex items-center justify-center relative overflow-hidden">
+                    {/* Profile image */}
+                    <img 
+                      src="https://ik.imagekit.io/Junaidshaik2335/Herojjjjjjj.jpg?updatedAt=1748058560359"
+                      alt="S Mohammed Junaid - Full Stack Developer"
+                      className="w-full h-full rounded-2xl object-cover shadow-inner"
+                    />
                   </div>
                 </div>
                 
