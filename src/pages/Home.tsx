@@ -4,6 +4,10 @@ import QuickStats from "@/components/home/QuickStats";
 import SkillsShowcase from "@/components/home/SkillsShowcase";
 import BriefAbout from "@/components/home/BriefAbout";
 import CallToAction from "@/components/home/CallToAction";
+import AboutSection from "@/components/home/AboutSection";
+import PortfolioSection from "@/components/home/PortfolioSection";
+import ServicesSection from "@/components/home/ServicesSection";
+import ContactSection from "@/components/home/ContactSection";
 
 const Home = () => {
   return (
@@ -12,6 +16,10 @@ const Home = () => {
       <QuickStats />
       <SkillsShowcase />
       <BriefAbout />
+      <AboutSection />
+      <PortfolioSection />
+      <ServicesSection />
+      <ContactSection />
       <CallToAction />
     </div>
   );
