@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Mail, Phone, Linkedin, Github, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -27,15 +28,40 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        'service_aw9ut2o', // Service ID
+        'template_cn45ahn', // Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        'BmnF9lhg9hGOPM2g-' // Public Key
+      );
+
+      console.log('Email sent successfully:', result);
+      
       toast({
-        title: "Message Sent!",
+        title: "Message Sent Successfully!",
         description: "Thank you for your message. I'll get back to you soon!",
       });
+      
+      // Reset form
       setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      
+      toast({
+        title: "Failed to Send Message",
+        description: "There was an error sending your message. Please try again or contact me directly.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 2000);
+    }
   };
 
   const contactMethods = [
@@ -110,6 +136,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="Your full name"
                         className="w-full"
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div>
@@ -125,6 +152,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="your.email@example.com"
                         className="w-full"
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
@@ -142,6 +170,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="Project inquiry, collaboration, etc."
                       className="w-full"
+                      disabled={isSubmitting}
                     />
                   </div>
                   
@@ -158,13 +187,14 @@ const Contact = () => {
                       placeholder="Tell me about your project, requirements, timeline, budget, or any questions you have..."
                       rows={6}
                       className="w-full"
+                      disabled={isSubmitting}
                     />
                   </div>
                   
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 disabled:hover:scale-100"
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                     <Send className="ml-2 h-5 w-5" />

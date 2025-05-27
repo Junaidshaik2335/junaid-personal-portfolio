@@ -6,6 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const CompleteContactSection = () => {
   const [formData, setFormData] = useState({
@@ -14,11 +16,47 @@ const CompleteContactSection = () => {
     subject: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+
+    try {
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        'service_aw9ut2o', // Service ID
+        'template_cn45ahn', // Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        'BmnF9lhg9hGOPM2g-' // Public Key
+      );
+
+      console.log('Email sent successfully:', result);
+      
+      toast({
+        title: "Message Sent Successfully!",
+        description: "Thank you for your message. I'll get back to you soon!",
+      });
+      
+      // Reset form
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      
+      toast({
+        title: "Failed to Send Message",
+        description: "There was an error sending your message. Please try again or contact me directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -103,6 +141,7 @@ const CompleteContactSection = () => {
                         onChange={handleChange}
                         placeholder="Your Name"
                         required
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div className="space-y-2">
@@ -115,6 +154,7 @@ const CompleteContactSection = () => {
                         onChange={handleChange}
                         placeholder="your.email@example.com"
                         required
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
@@ -128,6 +168,7 @@ const CompleteContactSection = () => {
                       onChange={handleChange}
                       placeholder="Project Inquiry"
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                   
@@ -141,15 +182,17 @@ const CompleteContactSection = () => {
                       placeholder="Tell me about your project..."
                       rows={6}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                   
                   <Button 
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
+                    disabled={isSubmitting}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 disabled:hover:scale-100"
                   >
                     <Send className="w-5 h-5 mr-2" />
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </CardContent>
