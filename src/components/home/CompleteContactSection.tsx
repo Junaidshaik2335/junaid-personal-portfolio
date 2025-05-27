@@ -100,7 +100,7 @@ const CompleteContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Email</h4>
-                    <p className="text-gray-600">junaid@example.com</p>
+                    <p className="text-gray-600">smdjunaid2335@gmail.com</p>
                   </div>
                 </div>
 
@@ -110,7 +110,7 @@ const CompleteContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Phone</h4>
-                    <p className="text-gray-600">+91 XXXXX XXXXX</p>
+                    <p className="text-gray-600">+91-8074722358</p>
                   </div>
                 </div>
 
@@ -120,7 +120,7 @@ const CompleteContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Location</h4>
-                    <p className="text-gray-600">India</p>
+                    <p className="text-gray-600">Anantapur, Andhra Pradesh, India</p>
                   </div>
                 </div>
               </div>

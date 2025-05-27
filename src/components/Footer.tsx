@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Mail, Phone, Linkedin, Github, Heart } from "lucide-react";
 
@@ -15,7 +14,7 @@ const Footer = () => {
 
   const services = [
     "Full Stack Development",
-    "Frontend Development",
+    "Frontend Development", 
     "Backend API Development",
     "Database Design",
     "Technical Consulting"
@@ -34,12 +33,12 @@ const Footer = () => {
     },
     {
       name: "LinkedIn",
-      href: "https://linkedin.com/in/mohammed-junaid",
+      href: "https://www.linkedin.com/in/s-mohammed-junaid",
       icon: Linkedin,
     },
     {
       name: "GitHub",
-      href: "https://github.com/smdjunaid",
+      href: "https://github.com/Junaidshaik2335",
       icon: Github,
     },
   ];

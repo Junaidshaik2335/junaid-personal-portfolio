@@ -83,14 +83,14 @@ const Contact = () => {
       icon: Linkedin,
       label: "LinkedIn",
       value: "Connect with me",
-      href: "https://linkedin.com/in/mohammed-junaid",
+      href: "https://www.linkedin.com/in/s-mohammed-junaid",
       color: "text-blue-600"
     },
     {
       icon: Github,
       label: "GitHub",
       value: "View my repositories",
-      href: "https://github.com/smdjunaid",
+      href: "https://github.com/Junaidshaik2335",
       color: "text-gray-800"
     }
   ];
