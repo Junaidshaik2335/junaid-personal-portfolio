@@ -12,7 +12,8 @@ const PortfolioSection = () => {
       description: "A full-featured e-commerce platform with user authentication, product catalog, shopping cart, and payment integration.",
       technologies: ["React.js", "Node.js", "MongoDB", "Express.js"],
       image: "🛒",
-      category: "Full Stack"
+      category: "Full Stack",
+      liveUrl: "https://junaid-e-commerce-web-application.lovable.app/"
     },
     {
       id: 2,
@@ -31,6 +32,12 @@ const PortfolioSection = () => {
       category: "Frontend"
     }
   ];
+
+  const handleLiveDemo = (project: typeof projects[0]) => {
+    if (project.liveUrl) {
+      window.open(project.liveUrl, '_blank');
+    }
+  };
 
   return (
     <section id="portfolio" className="py-20 bg-gray-50">
@@ -90,6 +97,7 @@ const PortfolioSection = () => {
                     <Button 
                       size="sm" 
                       className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
+                      onClick={() => handleLiveDemo(project)}
                     >
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Live Demo

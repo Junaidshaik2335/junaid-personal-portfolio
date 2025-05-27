@@ -19,7 +19,8 @@ const Portfolio = () => {
         "Responsive design for all devices"
       ],
       image: "🛒",
-      category: "Full Stack"
+      category: "Full Stack",
+      liveUrl: "https://junaid-e-commerce-web-application.lovable.app/"
     },
     {
       id: 2,
@@ -88,6 +89,12 @@ const Portfolio = () => {
   ];
 
   const categories = ["All", "Full Stack", "Frontend", "Backend"];
+
+  const handleLiveDemo = (project: typeof projects[0]) => {
+    if (project.liveUrl) {
+      window.open(project.liveUrl, '_blank');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white pt-20">
@@ -185,6 +192,7 @@ const Portfolio = () => {
                     <Button 
                       size="sm" 
                       className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
+                      onClick={() => handleLiveDemo(project)}
                     >
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Live Demo

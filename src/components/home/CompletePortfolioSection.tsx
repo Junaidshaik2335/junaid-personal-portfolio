@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -11,7 +12,8 @@ const CompletePortfolioSection = () => {
     technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Stripe API", "JWT Authentication"],
     features: ["User registration and authentication", "Product catalog with search and filtering", "Shopping cart and checkout process", "Payment integration with Stripe", "Admin dashboard for product management", "Responsive design for all devices"],
     image: "🛒",
-    category: "Full Stack"
+    category: "Full Stack",
+    liveUrl: "https://junaid-e-commerce-web-application.lovable.app/"
   }, {
     id: 2,
     title: "Personal Portfolio Website",
@@ -45,6 +47,13 @@ const CompletePortfolioSection = () => {
     image: "🌤️",
     category: "Frontend"
   }];
+
+  const handleLiveDemo = (project: typeof projects[0]) => {
+    if (project.liveUrl) {
+      window.open(project.liveUrl, '_blank');
+    }
+  };
+
   return (
     <section id="portfolio" className="py-20 bg-gray-50">
       {/* Header */}
@@ -110,7 +119,11 @@ const CompletePortfolioSection = () => {
                   </div>
                   
                   <div className="flex gap-3 pt-4">
-                    <Button size="sm" className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
+                    <Button 
+                      size="sm" 
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
+                      onClick={() => handleLiveDemo(project)}
+                    >
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Live Demo
                     </Button>
