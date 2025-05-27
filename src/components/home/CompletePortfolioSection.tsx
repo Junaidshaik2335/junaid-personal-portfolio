@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
+
 const CompletePortfolioSection = () => {
   const projects = [{
     id: 1,
@@ -44,7 +45,8 @@ const CompletePortfolioSection = () => {
     image: "🌤️",
     category: "Frontend"
   }];
-  return <section id="portfolio" className="py-20 bg-gray-50">
+  return (
+    <section id="portfolio" className="py-20 bg-gray-50">
       {/* Header */}
       <div className="py-20 bg-gradient-to-br from-blue-50 to-white">
         <div className="max-w-6xl mx-auto px-4 text-center">
@@ -60,7 +62,8 @@ const CompletePortfolioSection = () => {
       <div className="py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map(project => <Card key={project.id} className="shadow-lg border-0 hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-white to-gray-50">
+            {projects.map(project => (
+              <Card key={project.id} className="shadow-lg border-0 hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-white to-gray-50">
                 <CardHeader className="pb-4">
                   <div className="text-6xl text-center mb-4">{project.image}</div>
                   <div className="flex items-center justify-between mb-2">
@@ -81,22 +84,28 @@ const CompletePortfolioSection = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Key Features:</h4>
                     <ul className="text-sm text-gray-600 space-y-1">
-                      {project.features.slice(0, 3).map((feature, index) => <li key={index} className="flex items-start">
+                      {project.features.slice(0, 3).map((feature, index) => (
+                        <li key={index} className="flex items-start">
                           <span className="text-blue-600 mr-2">•</span>
                           {feature}
-                        </li>)}
+                        </li>
+                      ))}
                     </ul>
                   </div>
                   
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Technologies:</h4>
                     <div className="flex flex-wrap gap-2">
-                      {project.technologies.slice(0, 4).map((tech, index) => <Badge key={index} variant="secondary" className="text-xs bg-gray-100 text-gray-700">
+                      {project.technologies.slice(0, 4).map((tech, index) => (
+                        <Badge key={index} variant="secondary" className="text-xs bg-gray-100 text-gray-700">
                           {tech}
-                        </Badge>)}
-                      {project.technologies.length > 4 && <Badge variant="secondary" className="text-xs bg-gray-100 text-gray-700">
+                        </Badge>
+                      ))}
+                      {project.technologies.length > 4 && (
+                        <Badge variant="secondary" className="text-xs bg-gray-100 text-gray-700">
                           +{project.technologies.length - 4} more
-                        </Badge>}
+                        </Badge>
+                      )}
                     </div>
                   </div>
                   
@@ -111,10 +120,13 @@ const CompletePortfolioSection = () => {
                     </Button>
                   </div>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default CompletePortfolioSection;

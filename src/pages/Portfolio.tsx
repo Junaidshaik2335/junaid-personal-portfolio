@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -95,7 +94,7 @@ const Portfolio = () => {
       {/* Header */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-white">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">My Portfolio</h1>
+          <h1 className="text-5xl font-bold text-gray-900 mb-6">My Projects</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Explore my latest projects showcasing full stack development, creative problem-solving, 
             and technical expertise across various domains.
