@@ -15,8 +15,7 @@ const ServicesSection = () => {
         "API development and integration",
         "Responsive frontend design"
       ],
-      icon: "🌐",
-      pricing: "Starting from $2000"
+      icon: "🌐"
     },
     {
       id: 2,
@@ -28,8 +27,7 @@ const ServicesSection = () => {
         "UI/UX implementation",
         "Performance optimization"
       ],
-      icon: "🎨",
-      pricing: "Starting from $1200"
+      icon: "🎨"
     },
     {
       id: 3,
@@ -41,10 +39,16 @@ const ServicesSection = () => {
         "User authentication and authorization",
         "Third-party API integrations"
       ],
-      icon: "⚡",
-      pricing: "Starting from $1500"
+      icon: "⚡"
     }
   ];
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="services" className="py-20 bg-white">
@@ -71,7 +75,6 @@ const ServicesSection = () => {
                 <CardHeader className="pb-4">
                   <div className="flex items-start justify-between mb-4">
                     <div className="text-5xl">{service.icon}</div>
-                    <p className="text-xl font-bold text-blue-600">{service.pricing}</p>
                   </div>
                   <CardTitle className="text-2xl font-bold text-gray-900 leading-tight">
                     {service.title}
@@ -96,6 +99,7 @@ const ServicesSection = () => {
                   </div>
                   
                   <Button 
+                    onClick={scrollToContact}
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
                   >
                     Get Started

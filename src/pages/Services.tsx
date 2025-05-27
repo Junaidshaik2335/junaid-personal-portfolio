@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -19,9 +18,7 @@ const Services = () => {
         "Deployment and hosting setup"
       ],
       technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "JavaScript", "HTML5", "CSS3"],
-      icon: "🌐",
-      pricing: "Starting from $2000",
-      timeline: "4-8 weeks"
+      icon: "🌐"
     },
     {
       id: 2,
@@ -36,9 +33,7 @@ const Services = () => {
         "API documentation and testing"
       ],
       technologies: ["Node.js", "Express.js", "MongoDB", "MySQL", "JWT", "Firebase"],
-      icon: "⚡",
-      pricing: "Starting from $1500",
-      timeline: "3-6 weeks"
+      icon: "⚡"
     },
     {
       id: 3,
@@ -53,9 +48,7 @@ const Services = () => {
         "Cross-browser compatibility"
       ],
       technologies: ["React.js", "Tailwind CSS", "JavaScript", "HTML5", "CSS3", "Framer Motion"],
-      icon: "🎨",
-      pricing: "Starting from $1200",
-      timeline: "2-5 weeks"
+      icon: "🎨"
     },
     {
       id: 4,
@@ -70,9 +63,7 @@ const Services = () => {
         "Security implementation"
       ],
       technologies: ["MongoDB", "MySQL", "Firebase", "PostgreSQL"],
-      icon: "💾",
-      pricing: "Starting from $800",
-      timeline: "1-3 weeks"
+      icon: "💾"
     },
     {
       id: 5,
@@ -87,9 +78,7 @@ const Services = () => {
         "Ongoing technical support"
       ],
       technologies: ["Various based on project needs"],
-      icon: "🤝",
-      pricing: "$75/hour",
-      timeline: "Flexible"
+      icon: "🤝"
     }
   ];
 
@@ -118,10 +107,6 @@ const Services = () => {
                 <CardHeader className="pb-4">
                   <div className="flex items-start justify-between mb-4">
                     <div className="text-5xl">{service.icon}</div>
-                    <div className="text-right">
-                      <p className="text-2xl font-bold text-blue-600">{service.pricing}</p>
-                      <p className="text-sm text-gray-500">{service.timeline}</p>
-                    </div>
                   </div>
                   <CardTitle className="text-2xl font-bold text-gray-900 leading-tight">
                     {service.title}
